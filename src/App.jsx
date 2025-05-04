@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import { useEffect } from "react";
 
 export default function TodoList() {
   const [tasks, setTasks] = useState([]);
@@ -11,6 +12,10 @@ export default function TodoList() {
       setInput("");
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  });
 
   return (
     <div className="todo-container">
